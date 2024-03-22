@@ -1,5 +1,7 @@
 # Comunicación Serial con Unity
 
+![Proyecto](ImagenReferencia.png)
+
 Este proyecto demuestra cómo establecer una comunicación serial entre Unity y un dispositivo externo, como un microcontrolador. En este caso, se utiliza un Arduino como ejemplo de dispositivo externo.
 
 ## Configuración del Puerto Serial

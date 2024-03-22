@@ -2217,7 +2217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usuga Es gay
+  m_text: 'Frames:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9fbcf92a81561f849babb34ecb1bd8ec, type: 2}
   m_sharedMaterial: {fileID: -2438171332339042446, guid: 9fbcf92a81561f849babb34ecb1bd8ec,
