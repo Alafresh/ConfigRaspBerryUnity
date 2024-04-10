@@ -206,7 +206,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1420629218}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -966,7 +966,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 537257944}
+        m_TargetAssemblyTypeName: ExtractNumbers, Assembly-CSharp
+        m_MethodName: cambiar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!222 &169121056
 CanvasRenderer:
@@ -2311,7 +2323,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1880356103}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -2407,6 +2419,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respuesta: {fileID: 1995670365}
+  dropdown: {fileID: 169121055}
+  sliderNivel: {fileID: 535517391}
+  sliderEstado: {fileID: 9468406}
 --- !u!1 &537422158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4814,6 +4829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respuesta: {fileID: 1995670365}
+  inputField: {fileID: 1791351904}
 --- !u!4 &1478501809
 Transform:
   m_ObjectHideFlags: 0

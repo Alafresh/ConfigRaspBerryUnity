@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using static Cinemachine.DocumentationSortingAttribute;
 using System.Drawing;
+using UnityEngine.UI;
 
 public class ExtractNumbers : MonoBehaviour
 {
@@ -12,6 +13,28 @@ public class ExtractNumbers : MonoBehaviour
     int presion = 0;
     int nivel = 0;
     public TextMeshProUGUI respuesta;
+    [SerializeField] Dropdown dropdown;
+    [SerializeField] Slider sliderNivel;
+    [SerializeField] Slider sliderEstado;
+
+    public void cambiar()
+    {
+        switch(dropdown.value)
+        {
+            case 0:
+                sliderEstado.value = temperatura;
+                sliderNivel.value = temperatura + 2;
+                break;
+            case 1:
+                sliderEstado.value = presion;
+                sliderNivel.value = presion + 2;
+                break;
+            case 2:
+                sliderEstado.value = nivel;
+                sliderNivel.value = nivel + 2;
+                break;
+        }
+    }
 
     public void Contar()
     {
@@ -46,9 +69,5 @@ public class ExtractNumbers : MonoBehaviour
     private void Update()
     {
         Contar();
-        // Imprimir los números
-        Debug.Log("Temperatura: " + temperatura);
-        Debug.Log("Presion: " + presion);
-        Debug.Log("Nivel de agua: " + nivel);
     }
 }
