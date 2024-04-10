@@ -20321,7 +20321,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1235630499}
+      addedObject: {fileID: 1235630488}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!4 &1235630486 stripped
 Transform:
@@ -20335,7 +20335,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1235630485}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1235630499
+--- !u!114 &1235630488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22225,6 +22225,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1516293898
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1115756086394208, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_RobotFemale_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 448.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 126.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 692.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.83876127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.54449946
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -65.981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
 --- !u!114 &1520016616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22823,7 +22880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   containerGameObject: {fileID: 1378298061}
-  playerInteract: {fileID: 1235630499}
+  playerInteract: {fileID: 1235630488}
   interactTextMeshProUGUI: {fileID: 213939967}
 --- !u!114 &1587561950
 MonoBehaviour:
@@ -46658,3 +46715,4 @@ SceneRoots:
   - {fileID: 580678242}
   - {fileID: 1778281937}
   - {fileID: 960421307}
+  - {fileID: 1516293898}
