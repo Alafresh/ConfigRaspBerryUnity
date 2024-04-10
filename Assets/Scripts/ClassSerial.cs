@@ -15,14 +15,12 @@ public class ClassSerial : MonoBehaviour
     private static TaskState taskState = TaskState.INIT;
     private SerialPort _serialPort;
     private byte[] buffer;
-    public TextMeshProUGUI myText;
     private int counter = 0;
     [SerializeField] TextMeshProUGUI respuesta;
 
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(3);
-        myText.text = "Frames: " + counter.ToString();
         counter++;
 
         switch (taskState)
