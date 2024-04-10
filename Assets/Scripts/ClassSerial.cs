@@ -64,7 +64,7 @@ public class ClassSerial : MonoBehaviour
     void Start()
     {
         _serialPort = new SerialPort();
-        _serialPort.PortName = "COM14";
+        _serialPort.PortName = "COM16";
         _serialPort.BaudRate = 115200;
         _serialPort.DtrEnable = true;
         _serialPort.NewLine = "\n";

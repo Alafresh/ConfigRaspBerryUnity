@@ -1601,7 +1601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Toggle 1
+  m_Text: led
 --- !u!222 &137024933
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1879,11 +1879,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: Temperatura
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: Presion del refrigerante
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: Nivel Agua
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8367,7 +8367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SLIDER B
+  m_Text: Estado
 --- !u!222 &397590354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11634,7 +11634,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: Temperatura
 --- !u!222 &508087806
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12627,7 +12627,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TITLE OF WINDOW
+  m_Text: Estado de las variables
 --- !u!222 &567272591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18447,7 +18447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Very Easy
+  m_Text: Optimo
 --- !u!222 &661100435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18595,7 +18595,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Easy
+  m_Text: Normal
 --- !u!222 &683076413
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19440,7 +19440,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Medium
+  m_Text: Riesgo
 --- !u!222 &736782445
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21490,8 +21490,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 810576714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.64909345}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.19999981, y: -0.79999924}
   m_SizeDelta: {x: -4.5, y: 11.1}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22323,8 +22323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 379.95, y: -16.6}
-  m_SizeDelta: {x: 84.2, y: 22}
+  m_AnchoredPosition: {x: 369.2, y: -16.6}
+  m_SizeDelta: {x: 96.4559, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009155869
 MonoBehaviour:
@@ -22359,7 +22359,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Very Hard
+  m_Text: Destruccion
 --- !u!222 &1009155870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23790,7 +23790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 239.1, y: -16.6}
+  m_AnchoredPosition: {x: 215.2, y: -16.6}
   m_SizeDelta: {x: 78, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1152293244
@@ -23826,7 +23826,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hard
+  m_Text: Peligro
 --- !u!222 &1152293245
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25511,7 +25511,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select Field
+  m_Text: Seleccion
 --- !u!222 &1313307807
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25535,7 +25535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1322722199
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26165,9 +26165,9 @@ RectTransform:
   m_Father: {fileID: 514419110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -14, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1398821155
 MonoBehaviour:
@@ -26299,7 +26299,7 @@ RectTransform:
   m_Father: {fileID: 570110325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 8.600006, y: 0.000014305115}
   m_SizeDelta: {x: 28, y: 13.149992}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -31778,7 +31778,7 @@ RectTransform:
   m_Father: {fileID: 1809004420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 8.299988, y: -0.05000019}
   m_SizeDelta: {x: 28, y: 11.9}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -32023,7 +32023,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SLIDER A
+  m_Text: Niveles
 --- !u!222 &1891579382
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53006,18 +53006,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9b4fc19dff96abc429a722a4ada28880, type: 3}
-    m_FontSize: 15
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Text Field
+  m_Text: Campo variable
 --- !u!222 &2074874488
 CanvasRenderer:
   m_ObjectHideFlags: 0
