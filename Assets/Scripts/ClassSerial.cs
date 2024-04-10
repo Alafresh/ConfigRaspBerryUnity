@@ -17,7 +17,6 @@ public class ClassSerial : MonoBehaviour
     private byte[] buffer;
     private int counter = 0;
     [SerializeField] TextMeshProUGUI respuesta;
-
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(3);
@@ -69,45 +68,6 @@ public class ClassSerial : MonoBehaviour
         _serialPort.Open();
         Debug.Log("Open Serial Port");
         buffer = new byte[128];
-    }
-    public void ButtonOneON() {
-        _serialPort.Write("1ON\n");
-        Debug.Log("Send Btn1: ON");
-    }
-    public void ButtonOneOFF()
-    {
-        _serialPort.Write("1OFF\n");
-        Debug.Log("Send Btn1: OFF");
-    }
-    public void ButtonTwoON()
-    {
-        _serialPort.Write("2ON\n");
-        Debug.Log("Send Btn2: ON");
-    }
-    public void ButtonTwoOFF()
-    {
-        _serialPort.Write("2OFF\n");
-        Debug.Log("Send Btn2: OFF");
-    }
-    public void ButtonThreeON()
-    {
-        _serialPort.Write("3ON\n");
-        Debug.Log("Send Btn3: ON");
-    }
-    public void ButtonThreeOFF()
-    {
-        _serialPort.Write("3OFF\n");
-        Debug.Log("Send Btn3: OFF");
-    }
-    public void ButtonFourON()
-    {
-        _serialPort.Write("4ON\n");
-        Debug.Log("Send Btn4: ON");
-    }
-    public void ButtonFourOFF()
-    {
-        _serialPort.Write("4OFF\n");
-        Debug.Log("Send Btn4: OFF");
     }
     void Update()
     {
