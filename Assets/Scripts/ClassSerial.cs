@@ -20,6 +20,8 @@ public class ClassSerial : MonoBehaviour
     private int counter = 0;
     [SerializeField] TextMeshProUGUI respuesta;
     [SerializeField] InputField inputField;
+    [SerializeField] Image LedWrong;
+    [SerializeField] Image LedRight;
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(3);
@@ -32,14 +34,23 @@ public class ClassSerial : MonoBehaviour
                 Debug.Log("WAIT COMMANDS");
                 break;
             case TaskState.WAIT_COMMANDS:
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.Return))
                 {
                     string password = inputField.text;
                     _serialPort.Write(password+"\n");
                     Debug.Log("Send password" + password);
                     if(password == "C1234")
                     {
+                        LedRight.color = Color.green;
+                        LedWrong.color = new Color(115, 160, 166);
+                        _serialPort.Write("LEDOn\n");
                         taskState = TaskState.FINAL;
+                    }
+                    else
+                    {
+                        LedWrong.color = Color.red;
+                        LedRight.color = new Color(115, 160, 166);
+                        _serialPort.Write("LEDOff\n");
                     }
 
                 }
@@ -60,10 +71,18 @@ public class ClassSerial : MonoBehaviour
         }
         
     }
+    public void LedOn()
+    {
+        _serialPort.Write("LEDOn\n");
+    }
+    public void LedOff()
+    {
+        _serialPort.Write("LEDOff\n");
+    }
     void Start()
     {
         _serialPort = new SerialPort();
-        _serialPort.PortName = "COM16";
+        _serialPort.PortName = "COM14";
         _serialPort.BaudRate = 115200;
         _serialPort.DtrEnable = true;
         _serialPort.NewLine = "\n";
