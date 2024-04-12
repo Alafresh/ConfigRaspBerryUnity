@@ -19,6 +19,7 @@ public class ClassSerial : MonoBehaviour
     private byte[] buffer;
     private int counter = 0;
     [SerializeField] TextMeshProUGUI respuesta;
+    [SerializeField] GameObject ganaste;
     [SerializeField] InputField inputField;
     [SerializeField] Image LedWrong;
     [SerializeField] Image LedRight;
@@ -30,20 +31,37 @@ public class ClassSerial : MonoBehaviour
         switch (taskState)
         {
             case TaskState.INIT:
-                taskState = TaskState.WAIT_COMMANDS;
-                Debug.Log("WAIT COMMANDS");
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    string password = inputField.text;
+                    _serialPort.Write(password + "\n");
+                    if (password == "Iniciar")
+                    {
+                        taskState = TaskState.WAIT_COMMANDS;
+                        Debug.Log("WAIT COMMANDS");
+                    }
+                    ganaste.SetActive(false);
+                }
+                if (_serialPort.BytesToRead > 0)
+                {
+                    string response = _serialPort.ReadLine();
+                    Debug.Log(response);
+                    respuesta.text = response;
+                }
                 break;
             case TaskState.WAIT_COMMANDS:
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     string password = inputField.text;
-                    _serialPort.Write(password+"\n");
-                    Debug.Log("Send password" + password);
                     if(password == "C1234")
                     {
                         LedRight.color = Color.green;
                         LedWrong.color = new Color(115, 160, 166);
                         _serialPort.Write("LEDOn\n");
+                        ganaste.SetActive(true);
+                        yield return new WaitForSeconds(1);
+                        _serialPort.Write(password + "\n");
+                        Debug.Log("Send password 1" + password);
                         taskState = TaskState.FINAL;
                     }
                     else
@@ -52,7 +70,6 @@ public class ClassSerial : MonoBehaviour
                         LedRight.color = new Color(115, 160, 166);
                         _serialPort.Write("LEDOff\n");
                     }
-
                 }
                 if (_serialPort.BytesToRead > 0)
                 {
@@ -62,7 +79,7 @@ public class ClassSerial : MonoBehaviour
                 }
                 break;
             case TaskState.FINAL:
-                respuesta.text = "SALVASTE EL DIA";
+                taskState = TaskState.INIT;
                 break;
             default:
                 Debug.Log("State Error");
