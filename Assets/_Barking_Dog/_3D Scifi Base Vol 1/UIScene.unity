@@ -969,7 +969,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 537257944}
         m_TargetAssemblyTypeName: ExtractNumbers, Assembly-CSharp
-        m_MethodName: cambiar
+        m_MethodName: Cambiar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4969,6 +4969,8 @@ MonoBehaviour:
   inputField: {fileID: 1791351904}
   LedWrong: {fileID: 1777881395}
   LedRight: {fileID: 1502770402}
+  actualizarSliders: {fileID: 537257944}
+  tiempo: {fileID: 1574852592}
 --- !u!4 &1478501809
 Transform:
   m_ObjectHideFlags: 0
@@ -5209,7 +5211,7 @@ GameObject:
   - component: {fileID: 1574852593}
   - component: {fileID: 1574852592}
   m_Layer: 5
-  m_Name: TITLE OF WINDOW (1)
+  m_Name: Tiempo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5267,7 +5269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 60
 --- !u!222 &1574852593
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6815,7 +6817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Response
+  m_text: 60
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9fbcf92a81561f849babb34ecb1bd8ec, type: 2}
   m_sharedMaterial: {fileID: -2438171332339042446, guid: 9fbcf92a81561f849babb34ecb1bd8ec,

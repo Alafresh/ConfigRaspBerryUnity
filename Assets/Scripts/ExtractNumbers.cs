@@ -17,25 +17,24 @@ public class ExtractNumbers : MonoBehaviour
     [SerializeField] Slider sliderNivel;
     [SerializeField] Slider sliderEstado;
 
-    public void cambiar()
+    public void Cambiar()
     {
         switch(dropdown.value)
         {
             case 0:
                 sliderEstado.value = temperatura;
-                sliderNivel.value = temperatura + 2;
+                sliderNivel.value = temperatura;
                 break;
             case 1:
                 sliderEstado.value = presion;
-                sliderNivel.value = presion + 2;
+                sliderNivel.value = presion;
                 break;
             case 2:
                 sliderEstado.value = nivel;
-                sliderNivel.value = nivel + 2;
+                sliderNivel.value = nivel;
                 break;
         }
     }
-
     public void Contar()
     {
         // Expresión regular para buscar números

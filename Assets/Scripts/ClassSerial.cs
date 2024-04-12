@@ -23,6 +23,8 @@ public class ClassSerial : MonoBehaviour
     [SerializeField] InputField inputField;
     [SerializeField] Image LedWrong;
     [SerializeField] Image LedRight;
+    [SerializeField] ExtractNumbers actualizarSliders;
+    [SerializeField] Text tiempo;
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(3);
@@ -39,6 +41,12 @@ public class ClassSerial : MonoBehaviour
                     {
                         taskState = TaskState.WAIT_COMMANDS;
                         Debug.Log("WAIT COMMANDS");
+                    }
+                    if (password == "SubirTiempo" || password == "BajarTiempo")
+                    {
+                        int buff = int.Parse(respuesta.text);
+                        buff -= 1;
+                        tiempo.text = buff.ToString();
                     }
                     ganaste.SetActive(false);
                 }
@@ -76,6 +84,7 @@ public class ClassSerial : MonoBehaviour
                     string response = _serialPort.ReadLine();
                     Debug.Log(response);
                     respuesta.text = response;
+                    actualizarSliders.Cambiar();
                 }
                 break;
             case TaskState.FINAL:
