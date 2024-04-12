@@ -2,8 +2,6 @@
 
 ![Proyecto](ImagenProyecto.png)
 
-Este proyecto demuestra cómo establecer una comunicación serial entre Unity y un dispositivo externo, como un microcontrolador. En este caso, se utiliza un Arduino como ejemplo de dispositivo externo se puede encontrar el Proyecto para el microcontrolador comprimido en un zip llamado Examen2.zip
-
 ## Configuración del Puerto Serial
 
 Para establecer la comunicación serial, es importante considerar dos propiedades clave:
@@ -16,4 +14,120 @@ Para establecer la comunicación serial, es importante considerar dos propiedade
 
 Estas propiedades son fundamentales para establecer una comunicación correcta entre Unity y el microcontrolador. Si no se configuran correctamente, la comunicación puede no establecerse o puede ser inestable, lo que dificultaría la transmisión de datos entre ambos dispositivos.
 
-Para más detalles sobre cómo se implementa la comunicación serial en Unity, consulte el código fuente en el archivo `Serial.cs`.
+## Inclusiones de bibliotecas y declaración de enumeración
+```
+using System.Collections;
+using System.Collections.Generic;
+using System.IO.Ports;
+using TMPro;
+using UnityEngine;
+
+// Enum para representar los estados de la tarea
+enum TaskState
+{
+    INIT,               // Estado inicial
+    WAIT_COMMANDS       // Esperando comandos
+}
+```
+- Se incluyen las bibliotecas necesarias para el funcionamiento del código.
+- Se declara una enumeración TaskState que define los posibles estados de la tarea.
+
+  ##  Declaración de la clase y variables miembro
+```
+  public class ClassSerial : MonoBehaviour
+{
+    // Estado actual de la tarea
+    private static TaskState taskState = TaskState.INIT;
+    // Puerto serial
+    private SerialPort _serialPort;
+    // Buffer para datos del puerto serial
+    private byte[] buffer;
+    // Texto para mostrar información en la interfaz
+    public TextMeshProUGUI myText;
+    // Contador de frames
+    private int counter = 0;
+    // Texto para mostrar la respuesta del puerto serial en la interfaz
+    [SerializeField] TextMeshProUGUI respuesta;
+```
+
+- Se declara la clase ClassSerial que hereda de MonoBehaviour, lo que permite que sea un componente de Unity.
+- Se definen las variables miembro que se utilizarán en la clase, incluyendo el estado de la tarea, el puerto serial, un buffer para datos, objetos de texto para la interfaz, y un contador de frames.
+
+## Corrutina para esperar un tiempo
+```
+// Corrutina para esperar un tiempo antes de realizar acciones
+IEnumerator Wait()
+{
+    yield return new WaitForSeconds(3); // Esperar 3 segundos
+    myText.text = "Frames: " + counter.ToString(); // Mostrar el número de frames
+    counter++; // Incrementar el contador de frames
+
+    // Switch para manejar el estado actual de la tarea
+    switch (taskState)
+    {
+        case TaskState.INIT:
+            // Cambiar al estado de espera de comandos
+            taskState = TaskState.WAIT_COMMANDS;
+            Debug.Log("WAIT COMMANDS"); // Mostrar estado en la consola
+            break;
+        case TaskState.WAIT_COMMANDS:
+            // Manejar entrada de teclado para enviar comandos al puerto serial
+            // Leer datos del puerto serial si están disponibles
+            break;
+        default:
+            Debug.Log("State Error");
+            break;
+    }
+}
+```
+- Se define una corrutina llamada Wait que espera 3 segundos antes de realizar acciones.
+- Se actualiza el texto en la interfaz para mostrar el número de frames.
+- Se utiliza un switch para manejar el estado actual de la tarea y realizar acciones según dicho estado.
+
+## Método Start y configuración del puerto serial
+```
+  // Método llamado al iniciar el script
+void Start()
+{
+    // Configuración del puerto serial
+    _serialPort = new SerialPort();
+    _serialPort.PortName = "COM14"; // Puerto serial a utilizar
+    _serialPort.BaudRate = 115200; // Velocidad de comunicación en baudios
+    _serialPort.DtrEnable = true; // Habilitar control de flujo DTR
+    _serialPort.NewLine = "\n"; // Carácter de nueva línea
+    _serialPort.Open(); // Abrir el puerto serial
+    Debug.Log("Open Serial Port"); // Mostrar en la consola
+    buffer = new byte[128]; // Inicializar el buffer de datos
+}
+```
+- Se define el método Start, que se llama al iniciar el script.
+- Se configura el puerto serial especificando el nombre del puerto, la velocidad de comunicación, y otras opciones.
+- Se abre el puerto serial para establecer la conexión.
+
+## Métodos para controlar botones de la interfaz
+```
+// Métodos para controlar los botones de la interfaz
+public void ButtonOneON() {
+    _serialPort.Write("1ON\n");
+    Debug.Log("Send Btn1: ON");
+}
+public void ButtonOneOFF()
+{
+    _serialPort.Write("1OFF\n");
+    Debug.Log("Send Btn1: OFF");
+}
+// Métodos para controlar otros botones de la interfaz (ButtonTwoON, ButtonTwoOFF, ...)
+```
+- Se definen métodos públicos para controlar los botones de la interfaz.
+- Estos métodos envían comandos específicos al puerto serial según la acción realizada en la interfaz.
+
+## Método Update
+```
+// Método que se ejecuta en cada frame
+void Update()
+{
+   StartCoroutine(Wait()); // Llamar a la corrutina Wait
+}
+```
+- Se define el método Update, que se llama en cada frame.
+- En cada frame, se inicia la corrutina Wait para realizar acciones según el estado actual de la tarea.
