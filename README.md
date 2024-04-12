@@ -135,8 +135,8 @@ void Update()
 - Se define el método Update, que se llama en cada frame.
 - En cada frame, se inicia la corrutina Wait para realizar acciones según el estado actual de la tarea.
 
-## Documentos adicionales
-
+# Documentos adicionales
+![Nattativa](https://docs.google.com/document/d/1h1A-v5upudZEDbUCTuFwZtA7TT6g6vtgDPxW0Iy4LtM/edit?usp=drivesdk)
 
 # Integrantes 
 - juan Guillermo ID 000464690
