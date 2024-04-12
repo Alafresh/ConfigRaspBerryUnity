@@ -20,6 +20,7 @@ public class ClassSerial : MonoBehaviour
     private int counter = 0;
     [SerializeField] TextMeshProUGUI respuesta;
     [SerializeField] GameObject ganaste;
+    [SerializeField] GameObject perdiste;
     [SerializeField] InputField inputField;
     [SerializeField] Image LedWrong;
     [SerializeField] Image LedRight;
@@ -27,9 +28,7 @@ public class ClassSerial : MonoBehaviour
     [SerializeField] Text tiempo;
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3);
-        counter++;
-
+        yield return new WaitForSeconds(1);
         switch (taskState)
         {
             case TaskState.INIT:
@@ -42,19 +41,17 @@ public class ClassSerial : MonoBehaviour
                         taskState = TaskState.WAIT_COMMANDS;
                         Debug.Log("WAIT COMMANDS");
                     }
-                    if (password == "SubirTiempo" || password == "BajarTiempo")
-                    {
-                        int buff = int.Parse(respuesta.text);
-                        buff -= 1;
-                        tiempo.text = buff.ToString();
-                    }
                     ganaste.SetActive(false);
+                    perdiste.SetActive(false);
                 }
                 if (_serialPort.BytesToRead > 0)
                 {
                     string response = _serialPort.ReadLine();
                     Debug.Log(response);
                     respuesta.text = response;
+                    tiempo.text = response;
+                    counter = int.Parse(tiempo.text);
+                    Debug.Log("Counter11: " + counter);
                 }
                 break;
             case TaskState.WAIT_COMMANDS:
@@ -84,7 +81,19 @@ public class ClassSerial : MonoBehaviour
                     string response = _serialPort.ReadLine();
                     Debug.Log(response);
                     respuesta.text = response;
+                    counter--;
+                    if (counter > 0)
+                    {
+                        tiempo.text = counter.ToString();
+                        Debug.Log("Counter: " + counter);
+                    }                    
                     actualizarSliders.Cambiar();
+                }
+                if (counter <= 0)
+                {
+                    perdiste.SetActive(true);
+                    _serialPort.Write("C1234\n");
+                    taskState = TaskState.FINAL;
                 }
                 break;
             case TaskState.FINAL:
