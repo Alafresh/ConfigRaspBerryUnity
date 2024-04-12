@@ -2,12 +2,14 @@
 
 ![alt_tag](https://cdn.discordapp.com/attachments/977607304264425522/1228339052881641603/image.png?ex=662baee3&is=661939e3&hm=44c50ac7c9e912124ee03471a75eec9a0134443ab3f108da4b8e18c806702760&)
 
-![alt_tag](https://media.discordapp.net/attachments/977607304264425522/1228345036555554956/2024-04-12_08-36-26_2_1.gif?ex=662bb476&is=66193f76&hm=7abb9aa0cfb9402076be4b0d05af2f2d21d556df857c15caca19326668e37db1&=&width=522&height=295)
+<img src="https://media.discordapp.net/attachments/977607304264425522/1228345036555554956/2024-04-12_08-36-26_2_1.gif?ex=662bb476&is=66193f76&hm=7abb9aa0cfb9402076be4b0d05af2f2d21d556df857c15caca19326668e37db1&=&width=522&height=295" alt="Texto alternativo">
+
 
 
 ## Configuración del Puerto Serial
 
 Para establecer la comunicación serial, es importante considerar dos propiedades claves:
+<img src="https://media.discordapp.net/attachments/977607304264425522/1228345036555554956/2024-04-12_08-36-26_2_1.gif?ex=662bb476&is=66193f76&hm=7abb9aa0cfb9402076be4b0d05af2f2d21d556df857c15caca19326668e37db1&=&width=522&height=295" alt="Texto alternativo">
 
 1. **PortName**: Esta propiedad especifica el nombre del puerto serial al que se conectará el dispositivo. En Windows, los puertos seriales se identifican como `COM1`, `COM2`, etc. En Unix/Linux, se identifican como `/dev/ttyS0`, `/dev/ttyS1`, etc. Es esencial especificar el puerto correcto para establecer la comunicación con el dispositivo deseado.
 
