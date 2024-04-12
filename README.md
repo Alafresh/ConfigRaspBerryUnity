@@ -4,7 +4,7 @@
 
 ## Configuración del Puerto Serial
 
-Para establecer la comunicación serial, es importante considerar dos propiedades clave:
+Para establecer la comunicación serial, es importante considerar dos propiedades claves:
 
 1. **PortName**: Esta propiedad especifica el nombre del puerto serial al que se conectará el dispositivo. En Windows, los puertos seriales se identifican como `COM1`, `COM2`, etc. En Unix/Linux, se identifican como `/dev/ttyS0`, `/dev/ttyS1`, etc. Es esencial especificar el puerto correcto para establecer la comunicación con el dispositivo deseado.
 
@@ -12,7 +12,10 @@ Para establecer la comunicación serial, es importante considerar dos propiedade
 
 ## Relación con el Microcontrolador
 
-Estas propiedades son fundamentales para establecer una comunicación correcta entre Unity y el microcontrolador. Si no se configuran correctamente, la comunicación puede no establecerse o puede ser inestable, lo que dificultaría la transmisión de datos entre ambos dispositivos.
+Estas propiedades son fundamentales para establecer una comunicación correcta entre Unity y el microcontrolador. Si no se configuran correctamente, la comunicación puede no establecerse o puede ser inestable, lo que dificultaría la transmisión de datos entre ambos dispositivos Configurar correctamente es un paso importante para su correcto funcionamiento.
+
+# Conexión entre Raspberry Pi Pico y Unity para Intercambio de Datos 
+Estamos desarrollando una aplicación que establece una conexión entre un microcontrolador Raspberry Pi Pico y el motor gráfico Unity. Esta conexión permite intercambiar datos entre ambos sistemas, lo que nos permite controlar y monitorear dispositivos físicos desde una interfaz personalizada creada en Unity.
 
 ## Inclusiones de bibliotecas y declaración de enumeración
 ```
@@ -131,3 +134,7 @@ void Update()
 ```
 - Se define el método Update, que se llama en cada frame.
 - En cada frame, se inicia la corrutina Wait para realizar acciones según el estado actual de la tarea.
+
+## Documentos adicionales
+
+
