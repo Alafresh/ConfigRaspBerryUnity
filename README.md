@@ -2,7 +2,7 @@
 
 ![alt_tag](https://cdn.discordapp.com/attachments/977607304264425522/1228339052881641603/image.png?ex=662baee3&is=661939e3&hm=44c50ac7c9e912124ee03471a75eec9a0134443ab3f108da4b8e18c806702760&)
 
-[![Video(https://media.discordapp.net/attachments/977607304264425522/1228348014981283892/image.png?ex=662bb73c&is=6619423c&hm=6cd826bdc351b543a3a5e3a12a5acde43da5d77100ddce8f9dbc6da20b0aba72&=&format=webp&quality=lossless&width=687&height=343)](https://www.youtube.com/watch?v=y2WqV1QcpEs)
+[![Video](https://media.discordapp.net/attachments/977607304264425522/1228348014981283892/image.png?ex=662bb73c&is=6619423c&hm=6cd826bdc351b543a3a5e3a12a5acde43da5d77100ddce8f9dbc6da20b0aba72&=&format=webp&quality=lossless&width=687&height=343)](https://www.youtube.com/watch?v=y2WqV1QcpEs)
 
 
 ## Configuración del Puerto Serial
