@@ -41,6 +41,12 @@ public class ClassSerial : MonoBehaviour
                         taskState = TaskState.WAIT_COMMANDS;
                         Debug.Log("WAIT COMMANDS");
                     }
+                    if(password == "SubirTiempo" || password == "BajarTiempo")
+                    {
+                        string response = _serialPort.ReadLine();
+                        counter = int.Parse(tiempo.text);
+                        tiempo.text = response;
+                    }   
                     ganaste.SetActive(false);
                     perdiste.SetActive(false);
                 }
@@ -48,9 +54,7 @@ public class ClassSerial : MonoBehaviour
                 {
                     string response = _serialPort.ReadLine();
                     Debug.Log(response);
-                    respuesta.text = response;
-                    tiempo.text = response;
-                    counter = int.Parse(tiempo.text);
+                    respuesta.text = response;                    
                     Debug.Log("Counter11: " + counter);
                 }
                 break;
