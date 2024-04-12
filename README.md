@@ -1,6 +1,8 @@
 # Comunicación Serial con Unity
 
-![Proyecto](ImagenProyecto.png)
+![Proyecto]([ImagenProyecto.png](https://cdn.discordapp.com/attachments/977607304264425522/1228339052881641603/image.png?ex=662baee3&is=661939e3&hm=44c50ac7c9e912124ee03471a75eec9a0134443ab3f108da4b8e18c806702760&))
+
+![video](https://www.youtube.com/watch?v=y2WqV1QcpEs)
 
 ## Configuración del Puerto Serial
 
@@ -136,7 +138,8 @@ void Update()
 - En cada frame, se inicia la corrutina Wait para realizar acciones según el estado actual de la tarea.
 
 # Documentos adicionales
-![Nattativa](https://docs.google.com/document/d/1h1A-v5upudZEDbUCTuFwZtA7TT6g6vtgDPxW0Iy4LtM/edit?usp=drivesdk)
+[Narrativa](https://docs.google.com/document/d/1h1A-v5upudZEDbUCTuFwZtA7TT6g6vtgDPxW0Iy4LtM/edit?usp=drivesdk)
+
 
 # Integrantes 
 - juan Guillermo ID 000464690
