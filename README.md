@@ -2,7 +2,8 @@
 
 ![Proyecto]([ImagenProyecto.png](https://cdn.discordapp.com/attachments/977607304264425522/1228339052881641603/image.png?ex=662baee3&is=661939e3&hm=44c50ac7c9e912124ee03471a75eec9a0134443ab3f108da4b8e18c806702760&))
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=y2WqV1QcpEs" frameborder="0" allowfullscreen></iframe>
+[![Alt Text](https://img.youtube.com/vi/YOUR_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=y2WqV1QcpEs)
+
 
 
 ## Configuración del Puerto Serial
