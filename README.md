@@ -2,6 +2,9 @@
 
 ![alt_tag](https://cdn.discordapp.com/attachments/977607304264425522/1228339052881641603/image.png?ex=662baee3&is=661939e3&hm=44c50ac7c9e912124ee03471a75eec9a0134443ab3f108da4b8e18c806702760&)
 
+![Alt Text]([URL_del_GIF](https://cdn.discordapp.com/attachments/977607304264425522/1228345036555554956/2024-04-12_08-36-26_2_1.gif?ex=662bb476&is=66193f76&hm=7abb9aa0cfb9402076be4b0d05af2f2d21d556df857c15caca19326668e37db1&))
+
+
 
 ## Configuración del Puerto Serial
 
