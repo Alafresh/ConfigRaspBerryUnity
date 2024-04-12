@@ -18,7 +18,7 @@ Estas propiedades son fundamentales para establecer una comunicación correcta e
 Estamos desarrollando una aplicación que establece una conexión entre un microcontrolador Raspberry Pi Pico y el motor gráfico Unity. Esta conexión permite intercambiar datos entre ambos sistemas, lo que nos permite controlar y monitorear dispositivos físicos desde una interfaz personalizada creada en Unity.
 
 ## Inclusiones de bibliotecas y declaración de enumeración
-```
+```c#
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Ports;
