@@ -36,7 +36,7 @@ enum TaskState
 - Se declara una enumeración TaskState que define los posibles estados de la tarea.
 
   ##  Declaración de la clase y variables miembro
-```
+```c#
   public class ClassSerial : MonoBehaviour
 {
     // Estado actual de la tarea
@@ -57,7 +57,7 @@ enum TaskState
 - Se definen las variables miembro que se utilizarán en la clase, incluyendo el estado de la tarea, el puerto serial, un buffer para datos, objetos de texto para la interfaz, y un contador de frames.
 
 ## Corrutina para esperar un tiempo
-```
+```c#
 // Corrutina para esperar un tiempo antes de realizar acciones
 IEnumerator Wait()
 {
@@ -88,7 +88,7 @@ IEnumerator Wait()
 - Se utiliza un switch para manejar el estado actual de la tarea y realizar acciones según dicho estado.
 
 ## Método Start y configuración del puerto serial
-```
+```c#
   // Método llamado al iniciar el script
 void Start()
 {
@@ -108,7 +108,7 @@ void Start()
 - Se abre el puerto serial para establecer la conexión.
 
 ## Métodos para controlar botones de la interfaz
-```
+```c#
 // Métodos para controlar los botones de la interfaz
 public void ButtonOneON() {
     _serialPort.Write("1ON\n");
@@ -125,7 +125,7 @@ public void ButtonOneOFF()
 - Estos métodos envían comandos específicos al puerto serial según la acción realizada en la interfaz.
 
 ## Método Update
-```
+```c#
 // Método que se ejecuta en cada frame
 void Update()
 {
@@ -137,4 +137,9 @@ void Update()
 
 ## Documentos adicionales
 
+
+# Integrantes 
+- juan Guillermo ID 000464690
+- Cristian Usuga ID 000
+- Jhonier Mosquera Id 000
 
