@@ -28,7 +28,7 @@ public class ClassSerial : MonoBehaviour
     [SerializeField] Text tiempo;
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         switch (taskState)
         {
             case TaskState.INIT:
@@ -68,7 +68,7 @@ public class ClassSerial : MonoBehaviour
                         LedWrong.color = new Color(115, 160, 166);
                         _serialPort.Write("LEDOn\n");
                         ganaste.SetActive(true);
-                        yield return new WaitForSeconds(1);
+                        yield return new WaitForSeconds(0.5f);
                         _serialPort.Write(password + "\n");
                         Debug.Log("Send password 1" + password);
                         taskState = TaskState.FINAL;
