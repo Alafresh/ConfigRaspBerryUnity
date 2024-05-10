@@ -17,7 +17,7 @@ public class ClassSerial : MonoBehaviour
     private static TaskState taskState = TaskState.INIT;
     private SerialPort _serialPort;
     private byte[] buffer;
-    private int counter = 0;
+    private float counter = 0;
     [SerializeField] TextMeshProUGUI respuesta;
     [SerializeField] GameObject ganaste;
     [SerializeField] GameObject perdiste;
@@ -44,9 +44,9 @@ public class ClassSerial : MonoBehaviour
                     if(password == "SubirTiempo" || password == "BajarTiempo")
                     {
                         string response = _serialPort.ReadLine();
-                        counter = int.Parse(tiempo.text);
+                        counter = float.Parse(tiempo.text);
                         tiempo.text = response;
-                    }   
+                    }
                     ganaste.SetActive(false);
                     perdiste.SetActive(false);
                 }
@@ -77,7 +77,7 @@ public class ClassSerial : MonoBehaviour
                     {
                         LedWrong.color = Color.red;
                         LedRight.color = new Color(115, 160, 166);
-                        _serialPort.Write("LEDOff\n");
+                        _serialPort.Write("s\n");
                     }
                 }
                 if (_serialPort.BytesToRead > 0)
