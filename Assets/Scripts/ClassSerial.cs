@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Ports;
@@ -16,7 +17,6 @@ public class ClassSerial : MonoBehaviour
 {
     private static TaskState taskState = TaskState.INIT;
     private SerialPort _serialPort;
-    private byte[] buffer;
     private float counter = 0;
     [SerializeField] TextMeshProUGUI respuesta;
     [SerializeField] GameObject ganaste;
@@ -26,6 +26,8 @@ public class ClassSerial : MonoBehaviour
     [SerializeField] Image LedRight;
     [SerializeField] ExtractNumbers actualizarSliders;
     [SerializeField] Text tiempo;
+    [SerializeField] Image frame;
+    [SerializeField] Material frameMaterial;
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.5f);
@@ -38,6 +40,7 @@ public class ClassSerial : MonoBehaviour
                     _serialPort.Write(password + "\n");
                     if (password == "Iniciar")
                     {
+                        frame.material = frameMaterial;
                         taskState = TaskState.WAIT_COMMANDS;
                         Debug.Log("WAIT COMMANDS");
                     }
@@ -73,11 +76,34 @@ public class ClassSerial : MonoBehaviour
                         Debug.Log("Send password 1" + password);
                         taskState = TaskState.FINAL;
                     }
+                    if (password == "q")
+                    { 
+                        _serialPort.Write(password + "\n");
+                    }
+                    if (password == "w")
+                    {
+                        _serialPort.Write(password + "\n");
+                    }
+                    if (password == "e")
+                    {
+                        _serialPort.Write(password + "\n");
+                    }
+                    if (password == "r")
+                    {
+                        _serialPort.Write(password + "\n");
+                    }
+                    if (password == "t")
+                    {
+                        _serialPort.Write(password + "\n");
+                    }
+                    if (password == "y")
+                    {
+                        _serialPort.Write(password + "\n");
+                    }
                     else
                     {
                         LedWrong.color = Color.red;
                         LedRight.color = new Color(115, 160, 166);
-                        _serialPort.Write("s\n");
                     }
                 }
                 if (_serialPort.BytesToRead > 0)
@@ -92,6 +118,40 @@ public class ClassSerial : MonoBehaviour
                         Debug.Log("Counter: " + counter);
                     }                    
                     actualizarSliders.Cambiar();
+                }
+                if (_serialPort.BytesToRead >= 30)
+                {
+                    byte[] buffer = new byte[4];
+
+                    _serialPort.Read(buffer, 0, 4);
+                    float temperatura = System.BitConverter.ToSingle(buffer, 0);
+
+                    _serialPort.Read(buffer, 4, 4);
+                    float temperaturaEstado = System.BitConverter.ToSingle(buffer, 4);
+
+                    _serialPort.Read(buffer, 8, 4);
+                    float intervalo = System.BitConverter.ToSingle(buffer, 8);
+
+                    _serialPort.Read(buffer, 12, 4);
+                    float presion = System.BitConverter.ToSingle(buffer, 12);
+
+                    _serialPort.Read(buffer, 16, 4);
+                    float presionEstado = System.BitConverter.ToSingle(buffer, 16);
+
+                    _serialPort.Read(buffer, 20, 4);
+                    float nivel = System.BitConverter.ToSingle(buffer, 20);
+
+                    _serialPort.Read(buffer, 24, 4);
+                    float nivelEstado = System.BitConverter.ToSingle(buffer, 24);
+
+                    _serialPort.Read(buffer, 28, 4);
+                    float checksum = System.BitConverter.ToSingle(buffer, 28);
+
+                    float checksum2 = temperatura + temperaturaEstado + intervalo + presion + presionEstado + nivel + nivelEstado;
+
+                    Debug.Log(checksum);
+                    Debug.Log(checksum2);
+
                 }
                 if (counter <= 0)
                 {
@@ -127,7 +187,6 @@ public class ClassSerial : MonoBehaviour
         _serialPort.NewLine = "\n";
         _serialPort.Open();
         Debug.Log("Open Serial Port");
-        buffer = new byte[128];
     }
     void Update()
     {
