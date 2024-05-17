@@ -2,7 +2,6 @@ using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using TMPro;
-using static Cinemachine.DocumentationSortingAttribute;
 using System.Drawing;
 using UnityEngine.UI;
 

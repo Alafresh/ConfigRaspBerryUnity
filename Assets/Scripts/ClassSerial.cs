@@ -44,9 +44,10 @@ public class ClassSerial : MonoBehaviour
                         taskState = TaskState.WAIT_COMMANDS;
                         Debug.Log("WAIT COMMANDS");
                     }
-                    if(password == "SubirTiempo" || password == "BajarTiempo")
+                    if (password == "SubirTiempo" || password == "BajarTiempo")
                     {
                         string response = _serialPort.ReadLine();
+                        Debug.Log(response);
                         counter = float.Parse(tiempo.text);
                         tiempo.text = response;
                     }
@@ -57,7 +58,7 @@ public class ClassSerial : MonoBehaviour
                 {
                     string response = _serialPort.ReadLine();
                     Debug.Log(response);
-                    respuesta.text = response;                    
+                    respuesta.text = response;
                     Debug.Log("Counter11: " + counter);
                 }
                 break;
@@ -65,7 +66,8 @@ public class ClassSerial : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     string password = inputField.text;
-                    if(password == "C1234")
+                   
+                    if (password == "C1234")
                     {
                         LedRight.color = Color.green;
                         LedWrong.color = new Color(115, 160, 166);
@@ -76,50 +78,29 @@ public class ClassSerial : MonoBehaviour
                         Debug.Log("Send password 1" + password);
                         taskState = TaskState.FINAL;
                     }
-                    if (password == "q")
-                    { 
-                        _serialPort.Write(password + "\n");
-                    }
-                    if (password == "w")
-                    {
-                        _serialPort.Write(password + "\n");
-                    }
-                    if (password == "e")
-                    {
-                        _serialPort.Write(password + "\n");
-                    }
-                    if (password == "r")
-                    {
-                        _serialPort.Write(password + "\n");
-                    }
-                    if (password == "t")
-                    {
-                        _serialPort.Write(password + "\n");
-                    }
-                    if (password == "y")
-                    {
-                        _serialPort.Write(password + "\n");
-                    }
                     else
                     {
                         LedWrong.color = Color.red;
                         LedRight.color = new Color(115, 160, 166);
+                        _serialPort.Write("s\n");
                     }
+
+
                 }
                 if (_serialPort.BytesToRead > 0)
                 {
                     string response = _serialPort.ReadLine();
                     Debug.Log(response);
                     respuesta.text = response;
-                    counter--;
+                    counter -= 0.3f;
                     if (counter > 0)
                     {
                         tiempo.text = counter.ToString();
                         Debug.Log("Counter: " + counter);
-                    }                    
+                    }
                     actualizarSliders.Cambiar();
                 }
-                if (_serialPort.BytesToRead >= 30)
+                if (_serialPort.BytesToRead >= 10)
                 {
                     byte[] buffer = new byte[4];
 
@@ -127,27 +108,18 @@ public class ClassSerial : MonoBehaviour
                     float temperatura = System.BitConverter.ToSingle(buffer, 0);
 
                     _serialPort.Read(buffer, 4, 4);
-                    float temperaturaEstado = System.BitConverter.ToSingle(buffer, 4);
+                    float intervalo = System.BitConverter.ToSingle(buffer, 4);
 
                     _serialPort.Read(buffer, 8, 4);
-                    float intervalo = System.BitConverter.ToSingle(buffer, 8);
+                    float presion = System.BitConverter.ToSingle(buffer, 8);
 
                     _serialPort.Read(buffer, 12, 4);
-                    float presion = System.BitConverter.ToSingle(buffer, 12);
+                    float nivel = System.BitConverter.ToSingle(buffer, 12);
 
                     _serialPort.Read(buffer, 16, 4);
-                    float presionEstado = System.BitConverter.ToSingle(buffer, 16);
+                    float checksum = System.BitConverter.ToSingle(buffer, 16);
 
-                    _serialPort.Read(buffer, 20, 4);
-                    float nivel = System.BitConverter.ToSingle(buffer, 20);
-
-                    _serialPort.Read(buffer, 24, 4);
-                    float nivelEstado = System.BitConverter.ToSingle(buffer, 24);
-
-                    _serialPort.Read(buffer, 28, 4);
-                    float checksum = System.BitConverter.ToSingle(buffer, 28);
-
-                    float checksum2 = temperatura + temperaturaEstado + intervalo + presion + presionEstado + nivel + nivelEstado;
+                    float checksum2 = temperatura + intervalo + presion + nivel;
 
                     Debug.Log(checksum);
                     Debug.Log(checksum2);
@@ -168,7 +140,7 @@ public class ClassSerial : MonoBehaviour
                 break;
 
         }
-        
+
     }
     public void LedOn()
     {
@@ -181,7 +153,7 @@ public class ClassSerial : MonoBehaviour
     void Start()
     {
         _serialPort = new SerialPort();
-        _serialPort.PortName = "COM16";
+        _serialPort.PortName = "COM17";
         _serialPort.BaudRate = 115200;
         _serialPort.DtrEnable = true;
         _serialPort.NewLine = "\n";
@@ -190,6 +162,6 @@ public class ClassSerial : MonoBehaviour
     }
     void Update()
     {
-       StartCoroutine(Wait());
+        StartCoroutine(Wait());
     }
 }
